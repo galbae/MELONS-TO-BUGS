@@ -7,21 +7,21 @@ import urllib.request
 import ssl
 
 context = ssl._create_unverified_context()
-
-#urllib.request.urlretrieve(imgUrl, "test.jpg")
-
+#CHROMEOPTIONS
 options = webdriver.ChromeOptions()
 options.add_argument("headless")
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', options=options) 
 
-#주소로이동
+#MOVE
 driver.get('https://www.melon.com/mymusic/playlist/mymusicplaylistview_inform.htm?plylstSeq=489643191')
+
 time.sleep(1)
-#countingamount
+
+#COUNTING AMOUNT
 count_xpath = "/html/body/div/div[2]/div/div/div[2]/div/h3/span"
 count = driver.find_element_by_xpath(count_xpath)
 amount = list(str(count.text))
-x = int(amount[1] + amount[2]) #갯수
+x = int(amount[1] + amount[2]) #AMOUNT
 
 
 #listup
@@ -39,8 +39,8 @@ for i in range(1,x+1):
     artistname.append(name.text)
 print(artistname)
     
-#down
-import ssl
+#DOWNLOAD
+
 driver.get('https://music.bugs.co.kr/')
 time.sleep(1)
 count = 0
@@ -68,11 +68,11 @@ for i in range(len(songname)):
 
 print('COMPLETE!')
 
-#첫번째곡 xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[1]/td[3]/div/div/a[2]
-#첫번째곡 아티스트 xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[1]/td[4]/div/div/a
+#FS xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[1]/td[3]/div/div/a[2]
+#FA xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[1]/td[4]/div/div/a
 
-#두번째곡 xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[2]/td[3]/div/div/a[2]
-#두첫번째곡 아티스트 xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[2]/td[4]/div/div/a
-#
-#세번째곡 xpath = //*[@id="frm"]/div/table/tbody/tr[3]/td[3]/div/div/a[2]
-#세번째곡 아티스트 xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[3]/td[4]/div/div/a
+#SS xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[2]/td[3]/div/div/a[2]
+#SA xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[2]/td[4]/div/div/a
+
+#TS xpath = //*[@id="frm"]/div/table/tbody/tr[3]/td[3]/div/div/a[2]
+#TA xpath = /html/body/div/div[2]/div/div/div[2]/div/div[1]/form/div/table/tbody/tr[3]/td[4]/div/div/a
